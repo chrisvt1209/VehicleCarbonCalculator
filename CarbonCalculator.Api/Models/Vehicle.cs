@@ -5,11 +5,12 @@ namespace CarbonCalculator.Api.Models;
 
 public class Vehicle
 {
-    private readonly RdwClient _client;
+    private RdwClient _client;
 
-    internal Vehicle(RdwClient client)
+    internal Vehicle WithClient(RdwClient client)
     {
         _client = client;
+        return this;
     }
 
     [JsonPropertyName("kenteken")]

@@ -22,7 +22,7 @@ public class RdwClient
 
     public async Task<Vehicle?> GetVehicleAsync(string licensePlate)
     {
-        return (await GetAsync<Vehicle>($"m9d7-ebf2.json?kenteken={licensePlate.Replace("-", "")}"));
+        return (await GetAsync<Vehicle>($"m9d7-ebf2.json?kenteken={licensePlate.Replace("-", "")}"))?.WithClient(this);
     }
 
     public Vehicle GetVehicle(string licensePlate) =>
