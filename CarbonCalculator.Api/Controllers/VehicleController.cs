@@ -9,9 +9,9 @@ public class VehicleController : ControllerBase
 {
     private readonly RdwClient _rdwClient;
 
-    public VehicleController()
+    public VehicleController(RdwClient rdwClient)
     {
-        _rdwClient = new RdwClient();
+        _rdwClient = rdwClient;
     }
 
     [HttpGet("{licensePlate}")]
@@ -25,5 +25,23 @@ public class VehicleController : ControllerBase
         }
 
         return Ok(vehicle);
+    }
+
+    [HttpGet("{licensePlate}/carbon-emission")]
+    public async Task<IActionResult> GetCarbonEmission(string licensePlate, [FromQuery] double distance)
+    {
+        var vehicle = await _rdwClient.GetVehicleAsync(licensePlate);
+        if (vehicle is null)
+        {
+            return NotFound();
+        }
+
+        var carbonEmission = vehicle.CalculateCarbonEmission(distance);
+        return Ok(new
+        {
+            LicensePlate = licensePlate,
+            Distance = distance,
+            CarbonEmission = carbonEmission
+        });
     }
 }

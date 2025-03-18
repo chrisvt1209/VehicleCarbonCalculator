@@ -1,4 +1,8 @@
+using CarbonCalculator.Api.Util;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<RdwClient>();
 
 builder.Services.AddControllers();
 
