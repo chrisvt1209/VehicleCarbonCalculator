@@ -42,6 +42,6 @@ public class Vehicle
             carbonEmission = FuelInfo.AverageCarbonEmissionHeavy;
         }
 
-        return carbonEmission * distance;
+        return carbonEmission * distance / 1000;
     }
 }
