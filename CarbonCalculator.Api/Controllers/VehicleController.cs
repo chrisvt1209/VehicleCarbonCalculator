@@ -37,11 +37,12 @@ public class VehicleController : ControllerBase
         }
 
         var carbonEmission = vehicle.CalculateCarbonEmission(distance);
+        
         return Ok(new
         {
             LicensePlate = licensePlate,
-            Distance = distance,
-            CarbonEmission = carbonEmission
+            DistanceInKilometer = distance,
+            CarbonEmissionInKilogram = carbonEmission
         });
     }
 }
