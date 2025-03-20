@@ -27,6 +27,19 @@ public class VehicleController : ControllerBase
         return Ok(vehicle);
     }
 
+    [HttpGet("{licensePlate}/fuel-info")]
+    public async Task<IActionResult> GetFuelInfo(string licensePlate)
+    {
+        var fuelInfo = await _rdwClient.GetFuelInfoAsync(licensePlate);
+
+        if (fuelInfo is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(fuelInfo);
+    }
+
     [HttpGet("{licensePlate}/carbon-emission")]
     public async Task<IActionResult> GetCarbonEmission(string licensePlate, [FromQuery] double distance)
     {
@@ -37,12 +50,12 @@ public class VehicleController : ControllerBase
         }
 
         var carbonEmission = vehicle.CalculateCarbonEmission(distance);
-        
+
         return Ok(new
         {
             LicensePlate = licensePlate,
-            DistanceInKilometer = distance,
-            CarbonEmissionInKilogram = carbonEmission
+            DistanceInKm = distance,
+            CarbonEmissionInKg = carbonEmission
         });
     }
 }

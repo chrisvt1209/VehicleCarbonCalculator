@@ -13,7 +13,7 @@ public class RdwFuelInfo
     [JsonPropertyName("brandstofverbruik_gecombineerd")]
     public double AverageFuelConsumptionLight { get; init; }
 
-    [JsonPropertyName("brandstofverbruik_gecombineerd_wltp")]
+    [JsonPropertyName("brandstof_verbruik_gecombineerd_wltp")]
     public double AverageFuelConsumptionHeavy { get; init; }
 
     [JsonPropertyName("elektrisch_verbruik_enkel_elektrisch_wltp")]

@@ -14,7 +14,7 @@ public class RdwClient
     {
         Converters =
         {
-            new DoubleInStringConverter(),
+            new DoubleWithCommaConverter(),
             new IntegerInStringConverter(),
             new RdwBooleanConverter(),
             new NullableStringConverter()
