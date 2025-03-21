@@ -2,4 +2,5 @@
 
 public interface IVehicle
 {
+    double CalculateCarbonEmission(double distanceInKm);
 }

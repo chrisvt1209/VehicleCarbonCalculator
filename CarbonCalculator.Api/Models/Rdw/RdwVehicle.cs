@@ -37,18 +37,18 @@ public class RdwVehicle : IVehicle
 
     public double CalculateCarbonEmission(double distanceInKm)
     {
-        double carbonEmissionInKg = 0;
+        double totalCarbonEmissionInKg = 0;
 
         if (FuelInfo.FuelType.Contains("Elektriciteit"))
         {
-            carbonEmissionInKg = CalculateElectricVehicleEmissions(distanceInKm);
+            totalCarbonEmissionInKg = CalculateElectricVehicleEmissions(distanceInKm);
         }
         else
         {
-            carbonEmissionInKg = (distanceInKm / ConvertToKilometersPerLiter()) * ConvertEmissionInGramToKilogram();
+            totalCarbonEmissionInKg = distanceInKm / ConvertToKilometersPerLiter() * ReturnEmissionPerLiter();
         }
 
-        return carbonEmissionInKg;
+        return totalCarbonEmissionInKg;
     }
 
     private double ConvertToKilometersPerLiter()
@@ -71,16 +71,18 @@ public class RdwVehicle : IVehicle
         return FuelInfo.AverageCarbonEmissionLight / 1000;
     }
 
+    private double ReturnEmissionPerLiter()
+    {
+        double emissionPerLiter = ConvertEmissionInGramToKilogram() * ConvertToKilometersPerLiter();
+        return emissionPerLiter / 1;
+    }
+
     private double CalculateElectricVehicleEmissions(double distanceInKm)
     {
-        const double emissionFactorPerKwH = 0.22;
-
+        const double emissionFactorPerKwH = 0.25;
         double averageElectricConsumptionInKwH = FuelInfo.AverageElectricConsumptionWltp / 1000;
-
-        double totalElectricityConsumption = (distanceInKm * averageElectricConsumptionInKwH) / 100;
-
-        double carbonEmissionInKilogram = totalElectricityConsumption * emissionFactorPerKwH;
-
-        return carbonEmissionInKilogram;
+        double totalElectricityConsumption = distanceInKm * averageElectricConsumptionInKwH;
+        double carbonEmissionInKg = totalElectricityConsumption * emissionFactorPerKwH;
+        return carbonEmissionInKg;
     }
 }
