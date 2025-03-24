@@ -43,6 +43,10 @@ public class RdwVehicle : IVehicle
         {
             totalCarbonEmissionInKg = CalculateElectricVehicleEmissions(distanceInKm);
         }
+        else if (FuelInfo.FuelType.Contains("Hybride"))
+        {
+            totalCarbonEmissionInKg = CalculateHybridVehicleEmissions(distanceInKm);
+        }
         else
         {
             totalCarbonEmissionInKg = distanceInKm / ConvertToKilometersPerLiter() * ReturnEmissionPerLiter();
@@ -75,6 +79,13 @@ public class RdwVehicle : IVehicle
     {
         double emissionPerLiter = ConvertEmissionInGramToKilogram() * ConvertToKilometersPerLiter();
         return emissionPerLiter / 1;
+    }
+
+    private double CalculateHybridVehicleEmissions(double distanceInKm)
+    {
+        double fuelEmission = distanceInKm / ConvertToKilometersPerLiter() * ReturnEmissionPerLiter();
+        double electricEmission = CalculateElectricVehicleEmissions(distanceInKm);
+        return fuelEmission + electricEmission;
     }
 
     private double CalculateElectricVehicleEmissions(double distanceInKm)

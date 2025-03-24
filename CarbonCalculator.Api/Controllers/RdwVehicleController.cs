@@ -5,11 +5,11 @@ namespace CarbonCalculator.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class VehicleController : ControllerBase
+public class RdwVehicleController : ControllerBase
 {
     private readonly RdwClient _rdwClient;
 
-    public VehicleController(RdwClient rdwClient)
+    public RdwVehicleController(RdwClient rdwClient)
     {
         _rdwClient = rdwClient;
     }
