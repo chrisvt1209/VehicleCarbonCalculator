@@ -25,9 +25,6 @@ public class RdwVehicle : IVehicle
     [JsonPropertyName("handelsbenaming")]
     public string Model { get; init; } = string.Empty;
 
-    [JsonPropertyName("taxi_indicator")]
-    public bool IsTaxi { get; init; }
-
     [JsonPropertyName("brandstof_info")]
     public RdwFuelInfo FuelInfo =>
         (_fuelInfo ??= _client.GetFuelInfoAsync(LicensePlate).GetAwaiter().GetResult())
@@ -78,7 +75,7 @@ public class RdwVehicle : IVehicle
     private double ReturnEmissionPerLiter()
     {
         double emissionPerLiter = ConvertEmissionInGramToKilogram() * ConvertToKilometersPerLiter();
-        return emissionPerLiter / 1;
+        return emissionPerLiter;
     }
 
     private double CalculateHybridVehicleEmissions(double distanceInKm)
