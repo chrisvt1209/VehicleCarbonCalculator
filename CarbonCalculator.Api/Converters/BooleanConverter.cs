@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace CarbonCalculator.Api.Converters;
 
-public class RdwBooleanConverter : JsonConverter<bool>
+public class BooleanConverter : JsonConverter<bool>
 {
     public override bool CanConvert(Type typeToConvert)
     {
