@@ -8,7 +8,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rdw.Service", "Rdw.Service\Rdw.Service.csproj", "{ED287D78-94BD-4407-BCA2-D0526E065D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rdw.Repository", "Rdw.Repository\Rdw.Repository.csproj", "{F2784F06-780F-40B8-A697-08229D5FDBD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rdw.ApiWrapper", "Rdw.ApiWrapper\Rdw.ApiWrapper.csproj", "{E8206320-AC99-4530-BEA6-2B257D38924D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED287D78-94BD-4407-BCA2-D0526E065D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED287D78-94BD-4407-BCA2-D0526E065D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED287D78-94BD-4407-BCA2-D0526E065D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED287D78-94BD-4407-BCA2-D0526E065D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2784F06-780F-40B8-A697-08229D5FDBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2784F06-780F-40B8-A697-08229D5FDBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2784F06-780F-40B8-A697-08229D5FDBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2784F06-780F-40B8-A697-08229D5FDBD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8206320-AC99-4530-BEA6-2B257D38924D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8206320-AC99-4530-BEA6-2B257D38924D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8206320-AC99-4530-BEA6-2B257D38924D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8206320-AC99-4530-BEA6-2B257D38924D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

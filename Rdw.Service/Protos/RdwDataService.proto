@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "RdwData.proto";
+
+service RdwDataService {
+	rpc GetShiftEmission (RdwEmissionRequest) returns (RdwEmissionReply);
+}
+
+message RdwEmissionRequest {
+	string LicensePlate = 1;
+	double TotalDistanceKm = 2;
+}
+
+message RdwEmissionReply {
+	double TotalEmissionKg = 2;
+}
